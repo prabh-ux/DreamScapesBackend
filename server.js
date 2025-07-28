@@ -14,8 +14,9 @@ import './utils/cloudnary.js';
 const app=express();
 app.use(express.json());
 app.use(cors({
-origin: "https://dream-scapes-frontend.vercel.app",
-  credentials: true
+  origin: "https://dream-scapes-frontend.vercel.app",
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 
