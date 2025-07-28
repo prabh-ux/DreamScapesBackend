@@ -19,7 +19,8 @@ app.use(cors({
 }));
 
 
-
+// (optional but good)
+app.options("*", cors());
 
 
 app.use("/auth",AuthRouter);
