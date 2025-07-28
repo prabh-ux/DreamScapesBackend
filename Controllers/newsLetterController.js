@@ -22,7 +22,7 @@ export const sendMail = async (req, res) => {
 
         //mail options;
         const mailOptions = {
-            from: process.env.EMAIL,
+            from: email,
             to: process.env.EMAIL,
             replyTo: email,                   // ✅ sets the user's email for replies
 
@@ -35,11 +35,7 @@ export const sendMail = async (req, res) => {
         res.status(200).json({ msg: "mail sent successfully" });
 
     } catch (error) {
-         console.error("❌ Nodemailer Error:", error);
-    res.status(500).json({
-        msg: "Internal server error while subscribing",
-        error: error.message,
-    });
+        res.status(500).json({ msg: "internal server error while subscribing " + error });
     }
 
 }
