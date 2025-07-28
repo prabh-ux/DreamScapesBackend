@@ -16,8 +16,12 @@ app.use(express.json());
 app.use(cors({
   origin: "https://dream-scapes-frontend.vercel.app",
   credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"]
+  allowedHeaders: ["Content-Type", "Authorization"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 }));
+
+// (optional but good)
+app.options("*", cors());
 
 
 app.use("/auth",AuthRouter);
