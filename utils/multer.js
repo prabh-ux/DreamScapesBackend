@@ -9,7 +9,7 @@ const storage=new CloudinaryStorage({
  cloudinary,
  params:{
     folder:"userImages",
-    allowed_formats:["jpg", "png", "jpeg"]
+    allowed_formats:["jpg", "png", "jpeg","webp"]
  }
 
 
