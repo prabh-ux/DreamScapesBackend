@@ -13,11 +13,11 @@ import './utils/cloudnary.js';
 
 const app = express();
 app.use(express.json());
-// app.use(cors({
-//   origin: "https://dream-scapes-frontend.vercel.app", // ✅ replace * with exact domain in production
-//   credentials: true,
-// }));
-app.use(cors());
+app.use(cors({
+  origin: "https://dream-scapes-frontend.vercel.app", // ✅ replace * with exact domain in production
+  credentials: true,
+}));
+
 
 
 app.use("/auth", AuthRouter);
