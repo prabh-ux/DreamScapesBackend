@@ -11,7 +11,7 @@ import cors from 'cors';
 import './Models/db.js';
 import './utils/cloudnary.js';
 
-const app=express();
+const app = express();
 app.use(express.json());
 // app.use(cors({
 //   origin: "https://dream-scapes-frontend.vercel.app", // ✅ replace * with exact domain in production
@@ -20,32 +20,32 @@ app.use(express.json());
 app.use(cors());
 
 
-app.use("/auth",AuthRouter);
-app.use("/editor",ImageRouter);
+app.use("/auth", AuthRouter);
+app.use("/editor", ImageRouter);
 app.use("/editor", SearchRouter);
-app.use("/editor",SaveRouter);
-app.use("/",FetchRouter);
-app.use("/",DeleteRouter);
-app.use("/",NewsLetterRouter);
+app.use("/editor", SaveRouter);
+app.use("/", FetchRouter);
+app.use("/", DeleteRouter);
+app.use("/", NewsLetterRouter);
 
-app.use("/ping",(req,res)=>{
+app.use("/ping", (req, res) => {
 
-setTimeout(() => {
+
   try {
-  res.status(200).json({msg:"pong"});
-} catch (error) {
-  res.status(404).json({msg:"failed: ",error:error.message});
-}
-}, 20000);
+    res.status(200).json({ msg: "pong" });
+  } catch (error) {
+    res.status(404).json({ msg: "failed: ", error: error.message });
+  }
+
 
 
 
 })
 
 
-const port=process.env.PORT||8080;
+const port = process.env.PORT || 8080;
 
-app.listen(port,()=>{
+app.listen(port, () => {
 
-    console.log("server started at PORT "+ port);
+  console.log("server started at PORT " + port);
 })
