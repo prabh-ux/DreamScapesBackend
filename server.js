@@ -34,7 +34,7 @@ app.use("/ping", (req, res) => {
   try {
     res.status(200).json({ msg: "pong" });
   } catch (error) {
-    res.status(404).json({ msg: "failed: ", error: error.message });
+    res.status(500).json({ msg: "failed to send request to backend: ", error: error.message });
   }
 
 
