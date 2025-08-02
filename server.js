@@ -13,11 +13,11 @@ import './utils/cloudnary.js';
 
 const app=express();
 app.use(express.json());
-app.use(cors({
-  origin: "https://dream-scapes-frontend.vercel.app", // ✅ replace * with exact domain in production
-  credentials: true,
-}));
-
+// app.use(cors({
+//   origin: "https://dream-scapes-frontend.vercel.app", // ✅ replace * with exact domain in production
+//   credentials: true,
+// }));
+app.use(cors());
 
 
 app.use("/auth",AuthRouter);
@@ -28,6 +28,19 @@ app.use("/",FetchRouter);
 app.use("/",DeleteRouter);
 app.use("/",NewsLetterRouter);
 
+app.use("/ping",(req,res)=>{
+
+setTimeout(() => {
+  try {
+  res.status(200).json({msg:"pong"});
+} catch (error) {
+  res.status(404).json({msg:"failed: ",error:error.message});
+}
+}, 20000);
+
+
+
+})
 
 
 const port=process.env.PORT||8080;

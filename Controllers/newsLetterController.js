@@ -35,11 +35,11 @@ export const sendMail = async (req, res) => {
         res.status(200).json({ msg: "mail sent successfully" });
 
     } catch (error) {
-    console.error("❌ Nodemailer Error:", error);
-    res.status(500).json({
-        msg: "Internal server error while subscribing",
-        error: error.message,
-    });
+        console.error("❌ Nodemailer Error:", error);
+        res.status(500).json({
+            msg: "Internal server error while subscribing",
+            error: error.message,
+        });
     }
 
 }
